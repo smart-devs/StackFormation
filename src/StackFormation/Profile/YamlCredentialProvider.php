@@ -45,6 +45,9 @@ class YamlCredentialProvider {
         if(false === empty($profileConfig['region'])){
             $envVars['AWS_DEFAULT_REGION'] = $profileConfig['region'];
         }
+        if(false === empty($profileConfig['filter'])){
+            $envVars['STACKFORMATION_NAME_FILTER'] = $profileConfig['filter'];
+        }
         return array_merge($envVars,[
             'AWSINSPECTOR_PROFILE' => $profile, // this isn't really used except for debugging
             'AWS_ACCESS_KEY_ID' => $profileConfig['access_key'],
